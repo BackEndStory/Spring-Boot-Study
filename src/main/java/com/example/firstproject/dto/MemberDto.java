@@ -33,6 +33,6 @@ public class MemberDto {
 
     @Override
     public String toString(){
-        return "Member{" +name +title +age +"}";
+        return name+title+age;
     }
 }
