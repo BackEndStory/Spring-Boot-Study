@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -12,6 +14,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class GetController {
+
+    private final Logger LOGGER =  LoggerFactory.getLogger(GetController.class);
+
    // @RequestMapping(value = "/hello", method = RequestMethod.GET)  // 첫번째 방법
     //@GetMapping(value = "/name")                                    // 두번째 방법
 
@@ -33,6 +38,7 @@ public class GetController {
             @ApiParam(value = "제목", required = true) @RequestParam String title,
             @ApiParam(value = "나이", required = true) @RequestParam int age
             ){
+        LOGGER.info("get 메서드가 호출되었습니다. {} {} {}",name, title, age);
         return name +" " +title +" " +age;
     }
 
