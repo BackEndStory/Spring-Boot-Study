@@ -1,11 +1,17 @@
 package com.example.firstproject.data.entiity;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
+
 @Entity
+@Getter
+@Setter
 @Table(name = "product")
 public class Product {
 
@@ -26,5 +32,6 @@ public class Product {
     private  LocalDateTime updateAt;
 
 
-
+    public void setUpdatedAt(LocalDateTime now) {
+    }
 }
