@@ -4,14 +4,20 @@ package com.example.firstproject.data.entiity;
 import lombok.Getter;
 import lombok.Setter;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Locale;
 
-
+// 예제 7.2
 @Entity
+@Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@ToString(exclude = "name")
 @Table(name = "product")
 public class Product {
 
@@ -28,10 +34,10 @@ public class Product {
     @Column(nullable = false)
     private Integer stock;
 
-    private LocalDateTime createAt;
-    private  LocalDateTime updateAt;
+    private LocalDateTime createdAt;
 
+    private LocalDateTime updatedAt;
 
-    public void setUpdatedAt(LocalDateTime now) {
+    public void setUpdateAt(LocalDateTime now) {
     }
 }

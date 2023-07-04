@@ -20,7 +20,7 @@ public class ProductController {
     }
 
     @GetMapping()
-    public ResponseEntity<ProductResponseDto> getProduct(Long number){
+    public ResponseEntity<ProductResponseDto> getProduct( @RequestParam Long number){
         ProductResponseDto productResponseDto = productService.getProduct(number);
 
         return ResponseEntity.status(HttpStatus.OK).body(productResponseDto);
