@@ -4,7 +4,7 @@ import org.junit.jupiter.api.*;
 
 public class TestLifeCycle {
 
-    @BeforeAll
+     @BeforeAll
     static  void beforeAll(){
         System.out.println("## BoforeAll Annotation 호출 ##");
         System.out.println();

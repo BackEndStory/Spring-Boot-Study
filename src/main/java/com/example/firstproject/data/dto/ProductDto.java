@@ -1,10 +1,17 @@
 package com.example.firstproject.data.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+
+@Builder
+@AllArgsConstructor
 public class ProductDto {
 
     private String name;
     private int price;
     private int stock;
+
+
 
     public String getName() {
         return name;

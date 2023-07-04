@@ -2,7 +2,10 @@ package com.example.firstproject.service;
 
 import com.example.firstproject.data.dto.ProductDto;
 import com.example.firstproject.data.dto.ProductResponseDto;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public interface ProductService {
 
     ProductResponseDto getProduct(Long number);
