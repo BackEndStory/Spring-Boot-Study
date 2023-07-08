@@ -2,7 +2,12 @@ package com.example.firstproject.data.repository;
 
 import com.example.firstproject.data.entiity.Product;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -74,15 +79,17 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByNameOrderByPriceAscStockDesc(String name);
 
 
+    Page<Product> findByName(String name, Pageable pageable);
 
 
+    @Query("SELECT p FROM Product p WHERE p.name = ?1")
+    List<Product> findByName(String name);
 
 
+    @Query("SELECT p FROM Product p WHERE p.name = :name")
+    List<Product> findByNameParam(@Param("name") String name);
 
-
-
-
-
-
+    @Query("SELECT p.name, p.price, p.stock FROM Product p WHERE p.name = :name")
+    List<Object[]> findByNameParam2(@Param("name") String name);
 
 }

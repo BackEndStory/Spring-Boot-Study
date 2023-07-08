@@ -6,8 +6,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.example.firstproject.data.entiity.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -44,6 +48,8 @@ class ProductRepositoryTest3 {
         Product savedProduct1 = productRepository.save(product1);
         Product savedProduct2 = productRepository.save(product2);
         Product savedProduct3 = productRepository.save(product3);
+
+        Page<Product> product = productRepository.findByName("펜", PageRequest.of(0,2));
 
     }
 
