@@ -1,9 +1,6 @@
 package com.example.firstproject.data.entiity;
 
 
-import lombok.Getter;
-import lombok.Setter;
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -34,9 +31,6 @@ public class Product {
     @Column(nullable = false)
     private Integer stock;
 
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
 
     public void setUpdateAt(LocalDateTime now) {
     }
