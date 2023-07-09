@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-@ToString(exclude = "name")
 @Table(name = "product")
 public class Product {
 
@@ -31,7 +30,16 @@ public class Product {
     @Column(nullable = false)
     private Integer stock;
 
+    @OneToOne(mappedBy = "product")
+    private ProductDetail productDetail;
 
+//
     public void setUpdateAt(LocalDateTime now) {
+    }
+
+    public void setCreatedAt(LocalDateTime now) {
+    }
+
+    public void setUpdatedAt(LocalDateTime now) {
     }
 }

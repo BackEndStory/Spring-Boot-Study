@@ -10,6 +10,7 @@ import com.example.firstproject.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -30,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
         LOGGER.info("[getProduct] product number : {}, name : {}", product.getNumber(),
                 product.getName());
         ProductResponseDto productResponseDto = new ProductResponseDto();
-        productResponseDto.setNumber(((Product) product).getNumber());
+        productResponseDto.setNumber(product.getNumber());
         productResponseDto.setName(product.getName());
         productResponseDto.setPrice(product.getPrice());
         productResponseDto.setStock(product.getStock());
