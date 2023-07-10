@@ -33,6 +33,10 @@ public class Product {
     @OneToOne(mappedBy = "product")
     private ProductDetail productDetail;
 
+    @ManyToOne
+    @JoinColumn(name = "provider_id")
+    private Provider provider;
+
 //
     public void setUpdateAt(LocalDateTime now) {
     }
