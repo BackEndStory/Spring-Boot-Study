@@ -5,6 +5,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 // 예제 7.2
 @Entity
@@ -37,13 +39,18 @@ public class Product {
     @JoinColumn(name = "provider_id")
     private Provider provider;
 
-//
+    @ManyToMany
+    private List<Producer> producers = new ArrayList<>();
+
+    public void addProducer(Producer producer){
+        this.producers.add(producer);
+    }
+
+
+
     public void setUpdateAt(LocalDateTime now) {
     }
 
-    public void setCreatedAt(LocalDateTime now) {
-    }
 
-    public void setUpdatedAt(LocalDateTime now) {
-    }
+
 }
