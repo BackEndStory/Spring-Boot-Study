@@ -20,7 +20,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 
     Optional<Product> findByNumber(Long number);
-    List<Product> findAllBy(String name);
+  //  List<Product> findAllBy(String name);
     Product queryByNumber(Long number);
 
     boolean existsByNumber(Long number);
@@ -43,7 +43,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Product findByNumberNot(Long number);
 
-    List<Product> findByUpdatedAtNull();
+  //  List<Product> findByUpdatedAtNull();
 
     Product findByNumberAndName(Long number, String name);
 
