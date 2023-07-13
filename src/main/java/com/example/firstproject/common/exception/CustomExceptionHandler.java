@@ -16,18 +16,18 @@ public class CustomExceptionHandler {
 
     private final Logger LOGGER = LoggerFactory.getLogger(CustomExceptionHandler.class);
 
-    @ExceptionHandler(value = RuntimeException.class)
-    public ResponseEntity<Map<String, String>> handleException(RuntimeException e, HttpServletRequest request){
+    @ExceptionHandler(value = CustomException.class)
+    public ResponseEntity<Map<String, String>> handleException(CustomException e, HttpServletRequest request){
         HttpHeaders responseHeaders = new HttpHeaders();
-        HttpStatus httpsStatus = HttpStatus.BAD_REQUEST;
+
 
         LOGGER.error("Advice 내 handleException호출, {}, {}", request.getRequestURI(), e.getMessage());
 
         Map<String, String> map = new HashMap<>();
-        map.put("error type", httpsStatus.getReasonPhrase());
-        map.put("code", "400");
+        map.put("error type", e.getHttpStatusType());
+        map.put("code", Integer.toString(e.getHttpStatusCode()));
         map.put("message", e.getMessage());
 
-        return new ResponseEntity<>(map, responseHeaders, httpsStatus);
+        return new ResponseEntity<>(map, responseHeaders, e.getHttpStatus());
     }
 }

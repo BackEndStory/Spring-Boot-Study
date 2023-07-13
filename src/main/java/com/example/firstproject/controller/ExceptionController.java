@@ -1,6 +1,8 @@
 package com.example.firstproject.controller;
 
 
+import com.example.firstproject.common.Constants;
+import com.example.firstproject.common.exception.CustomException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -25,6 +27,13 @@ public class ExceptionController {
     public void getRuntimeException(){
         throw new RuntimeException("getRunTimeException 메서드 호출");
     }
+
+    @GetMapping("/custom")
+    public void getCustomException() throws CustomException{
+        throw new CustomException(Constants.ExceptionClass.PRODUCT, HttpStatus.BAD_REQUEST, "getCustomException메서드 호출");
+    }
+
+
 
     @ExceptionHandler(value = RuntimeException.class)
     public ResponseEntity<Map<String, String>> handleException(RuntimeException e, HttpServletRequest request){
