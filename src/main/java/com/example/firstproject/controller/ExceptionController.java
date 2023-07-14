@@ -30,7 +30,7 @@ public class ExceptionController {
 
     @GetMapping("/custom")
     public void getCustomException() throws CustomException{
-        throw new CustomException(Constants.ExceptionClass.PRODUCT, HttpStatus.BAD_REQUEST, "getCustomException메서드 호출");
+        throw new CustomException(Constants.ExceptionClass.PRODUCT, HttpStatus.BAD_REQUEST, " getCustomException메서드 호출");
     }
 
 
