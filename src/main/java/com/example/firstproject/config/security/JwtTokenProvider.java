@@ -45,7 +45,7 @@ public class JwtTokenProvider {
     }
 
 
-    public String createToken(String userUid, List<String> roles) {            // 토큰 생성
+    public String createToken(String userUid, List roles) {            // 토큰 생성
         LOGGER.info("[createToken] 토큰 생성 시작");
         Claims claims = Jwts.claims().setSubject(userUid);
         claims.put("roles", roles);
